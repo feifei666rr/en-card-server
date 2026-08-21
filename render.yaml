@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: en-card-server
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: ENEN_ADMIN_TOKEN
+        value: enen_admin_2024_secret
+    healthCheckPath: /api/public_key
+    autoDeploy: true

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.db
+keys/
+*.pem
+.env
+autostart.log
